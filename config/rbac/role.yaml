@@ -1,0 +1,34 @@
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - apiextensions.k8s.io.cyberark.com
+  resources:
+  - conjurconfigs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io.cyberark.com
+  resources:
+  - conjurconfigs/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - apiextensions.k8s.io.cyberark.com
+  resources:
+  - conjurconfigs/status
+  verbs:
+  - get
+  - patch
+  - update
