@@ -30,7 +30,7 @@ import (
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	apiextensionsk8siov1alpha1 "github.com/cyberark/conjur-config-operator/api/v1alpha1"
+	apiextensionsk8siov1alpha1 "github.com/diverdane/conjur-config-operator/api/v1alpha1"
 	//+kubebuilder:scaffold:imports
 )
 

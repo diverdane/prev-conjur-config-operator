@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	apiextensionsk8siov1alpha1 "github.com/cyberark/conjur-config-operator/api/v1alpha1"
-	"github.com/cyberark/conjur-config-operator/controllers"
+	apiextensionsk8siov1alpha1 "github.com/diverdane/conjur-config-operator/api/v1alpha1"
+	"github.com/diverdane/conjur-config-operator/controllers"
 	//+kubebuilder:scaffold:imports
 )
 
