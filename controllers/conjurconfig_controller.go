@@ -30,7 +30,7 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	apiextensionsk8siov1alpha1 "github.com/diverdane/conjur-config-operator/api/v1alpha1"
+	apiextensionsk8siov1 "github.com/diverdane/conjur-config-operator/api/v1"
 )
 
 // ConjurConfigReconciler reconciles a ConjurConfig object
@@ -59,7 +59,7 @@ func (r *ConjurConfigReconciler) Reconcile(ctx context.Context, req ctrl.Request
 	_ = r.Log.WithValues("conjurconfig", req.NamespacedName)
 
 	// Fetch the ConjurConfig instance
-	conjurConfig := &apiextensionsk8siov1alpha1.ConjurConfig{}
+	conjurConfig := &apiextensionsk8siov1.ConjurConfig{}
 	err := r.Get(ctx, req.NamespacedName, conjurConfig)
 	if err != nil {
 		if errors.IsNotFound(err) {
@@ -105,7 +105,7 @@ func (r *ConjurConfigReconciler) Reconcile(ctx context.Context, req ctrl.Request
 
 // configMapForConjurConfig returns a Conjur connect ConfigMap object
 func (r *ConjurConfigReconciler) configMapForConjurConfig(
-	c *apiextensionsk8siov1alpha1.ConjurConfig) *v1.ConfigMap {
+	c *apiextensionsk8siov1.ConjurConfig) *v1.ConfigMap {
 
 	ls := labelsForConjurConfig(c.Name)
 
@@ -133,7 +133,7 @@ func labelsForConjurConfig(name string) map[string]string {
 // SetupWithManager sets up the controller with the Manager.
 func (r *ConjurConfigReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&apiextensionsk8siov1alpha1.ConjurConfig{}).
+		For(&apiextensionsk8siov1.ConjurConfig{}).
 		Owns(&v1.ConfigMap{}).
 		Owns(&rbacv1.RoleBinding{}).
 		Complete(r)
