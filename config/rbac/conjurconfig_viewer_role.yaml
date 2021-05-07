@@ -1,0 +1,20 @@
+# permissions for end users to view conjurconfigs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: conjurconfig-viewer-role
+rules:
+- apiGroups:
+  - apiextensions.k8s.io.cyberark.com
+  resources:
+  - conjurconfigs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io.cyberark.com
+  resources:
+  - conjurconfigs/status
+  verbs:
+  - get

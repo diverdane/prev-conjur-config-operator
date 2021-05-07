@@ -6,4 +6,14 @@ plugins:
   scorecard.sdk.operatorframework.io/v2: {}
 projectName: conjur-config-operator
 repo: github.com/cyberark/conjur-config-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: cyberark.com
+  group: apiextensions.k8s.io
+  kind: ConjurConfig
+  path: github.com/cyberark/conjur-config-operator/api/v1alpha1
+  version: v1alpha1
 version: "3"
